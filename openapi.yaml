@@ -1,0 +1,35 @@
+openapi: 3.0.3
+info:
+  title: '101Ways Interview Pair Programming TypeScript API'
+  description: '101Ways Interview Pair Programming TypeScript repository'
+  version: 1.0.0
+servers:
+  - url: http://localhost:9080
+paths:
+  /api/v1/dummy:
+    get:
+      summary: Dummy endpoint.
+      description: Dummy endpoint.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /health:
+    get:
+      summary: Health check endpoint.
+      description: Reports that the service is online.
+      responses:
+        '200':
+          description: OK
+  /api-docs:
+    get:
+      summary: OpenAPI documentation viewer
+      description: OpenAPI documentation endpoint
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html: {}

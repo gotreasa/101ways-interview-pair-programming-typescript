@@ -1,0 +1,49 @@
+{
+  "env": {
+    "es2024": true,
+    "node": true,
+    "jest/globals": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:jest/recommended",
+    "plugin:jest-formatting/recommended",
+    "plugin:jest/style",
+    // https://github.com/prettier/eslint-config-plugin
+    // by adding this config last, we can overwrite any other styling rules from eslint configs
+    "plugin:@shopify/prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "project": "./tsconfig.json",
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "import", "jest-formatting", "jest"],
+  "rules": {
+    "camelcase": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/*.test.ts", "**/*.pacts.ts"]
+      }
+    ],
+    "no-underscore-dangle": 0,
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "next"
+      }
+    ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "next": "return",
+        "prev": "*"
+      }
+    ]
+  }
+}
